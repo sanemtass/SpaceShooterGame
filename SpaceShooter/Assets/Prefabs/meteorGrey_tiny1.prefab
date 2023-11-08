@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7201358784231398766}
   - component: {fileID: 3858864600958757659}
+  - component: {fileID: 6421590299905500520}
+  - component: {fileID: -602547896438920129}
   m_Layer: 0
   m_Name: meteorGrey_tiny1
   m_TagString: Untagged
@@ -84,3 +86,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6421590299905500520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873189162390383710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf629e49dee7432b908942d66546fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 7
+--- !u!114 &-602547896438920129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873189162390383710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6813ddfca698640198f306137ea526fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3

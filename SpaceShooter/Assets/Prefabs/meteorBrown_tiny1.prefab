@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6948369064595315865}
   - component: {fileID: 5349659440107204678}
+  - component: {fileID: 472387581873773801}
+  - component: {fileID: 6853616836209641436}
   m_Layer: 0
   m_Name: meteorBrown_tiny1
   m_TagString: Untagged
@@ -84,3 +86,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &472387581873773801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863887609903870808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf629e49dee7432b908942d66546fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 3
+--- !u!114 &6853616836209641436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8863887609903870808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6813ddfca698640198f306137ea526fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3

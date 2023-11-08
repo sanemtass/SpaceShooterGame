@@ -207,6 +207,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &512280660
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437222650065880842, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207456982988139099, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_Name
+      value: meteorBrown_big2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207456982988139099, guid: c2af1fe15f5094ea4888042278311143, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2af1fe15f5094ea4888042278311143, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +396,7 @@ Transform:
   m_Children:
   - {fileID: 351300881}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1650228212
 GameObject:
@@ -396,7 +457,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146259039
 GameObject:
@@ -427,17 +488,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed4b67dc6d2b49bf9d03f562bd25ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPositions:
-  - {x: 0, y: 1.27, z: 0}
-  - {x: 1.14, y: -2.22, z: 0}
-  - {x: 2.7, y: 1.35, z: 0}
-  - {x: 2.7, y: 1.59, z: 0}
-  - {x: 6.31, y: 1.43, z: 0}
-  - {x: 4.6, y: 1.67, z: 0.52}
-  - {x: 3.55, y: 1.75, z: 0}
-  - {x: 2.9, y: 1.35, z: 0}
-  spawnInterval: 2
-  objectType: 0
+  minSpawnInterval: 0.2
+  maxSpawnInterval: 0.5
+  asteroidLifetime: 3
+  maxAsteroidCount: 10
 --- !u!4 &2146259041
 Transform:
   m_ObjectHideFlags: 0
@@ -451,5 +505,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -27,6 +27,8 @@ public class ObjectPooler : MonoBehaviour
         public Queue<GameObject> PooledObjects;
         public GameObject objectPrefab;
         public int poolSize;
+
+        public int objectType { get; internal set; }
     }
 
     [SerializeField] public Pool[] pools = null;
