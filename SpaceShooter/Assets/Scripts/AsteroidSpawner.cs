@@ -1,12 +1,16 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    public float minSpawnInterval = .2f; // Minimum oluşturulma aralığı
-    public float maxSpawnInterval = 5f; // Maximum oluşturulma aralığı
-    public float asteroidLifetime = 7f; // Asteroidlerin ömrü
-    public int maxAsteroidCount = 10; // Maksimum oluşturulacak asteroid sayısı
+    public float minSpawnInterval = .2f;
+    public float maxSpawnInterval = .5f;
+    public float asteroidLifetime = 1.5f;
+    public int maxAsteroidCount = 14;
+    public float spawnHeight = 10f; // Yukarıdan gelme yüksekliği
+
+    private List<Vector2> asteroidPositions = new List<Vector2>();
 
     private void Start()
     {
@@ -17,12 +21,21 @@ public class AsteroidSpawner : MonoBehaviour
     {
         while (true)
         {
-            int asteroidCount = Random.Range(1, maxAsteroidCount + 1);
+            int asteroidCount = Random.Range(5, maxAsteroidCount + 1);
+
+            // Asteroidler arasındaki boşluğu düzenli bir desene göre azalt
+            float patternWidth = 5f; // Desen genişliği
+            float patternHeight = 6f; // Desen yüksekliği
 
             for (int i = 0; i < asteroidCount; i++)
             {
                 GameObject asteroid = GetRandomAsteroid();
-                SetRandomPosition(asteroid); // SetRandomPosition fonksiyonunu çağır
+
+                // Desen içinde rastgele bir konum belirle
+                float patternX = Random.Range(-patternWidth / 2f, patternWidth / 2f);
+                float patternY = Random.Range(-patternHeight / 2f, patternHeight / 2f);
+
+                asteroid.transform.position = new Vector2(patternX, spawnHeight + patternY); // Yukarıdan gelme yüksekliği ekleniyor
                 asteroid.SetActive(true);
             }
 
@@ -35,41 +48,39 @@ public class AsteroidSpawner : MonoBehaviour
         }
     }
 
-
-    private void SpawnAsteroidsInPattern(int count, float startX, float startY, float spacingX, float spacingY)
-    {
-        float x = startX;
-        float y = startY;
-
-        for (int i = 0; i < count; i++)
-        {
-            GameObject asteroid = GetRandomAsteroid();
-            asteroid.transform.position = new Vector2(x, y);
-            asteroid.SetActive(true);
-
-            x += spacingX;
-            y += spacingY;
-        }
-    }
-
-    private void ReturnAsteroids(int count) //kontrol et burayi
+    private void ReturnAsteroids(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            GameObject asteroid = GetRandomAsteroid();
-            if (asteroid.activeSelf)
+            GameObject asteroid = GetAsteroidByObjectType(Random.Range(0, 7)); // Rastgele bir asteroid tipi al
+
+            if (asteroid != null && asteroid.activeSelf)
             {
                 ObjectPooler.Instance.SetPoolObject(asteroid, asteroid.GetComponent<ObjectTypeScript>().objectType);
             }
+
             asteroid.SetActive(false);
+            asteroidPositions.Remove(asteroid.transform.position);
         }
     }
 
     private void SetRandomPosition(GameObject obj)
     {
-        float x = Random.Range(-2f, 2f);
-        float y = Random.Range(12f, 15f);
-        obj.transform.position = new Vector2(x, y);
+        Vector2 newPosition;
+        do
+        {
+            float x = Random.Range(-2f, 2f);
+            float y = Random.Range(12f, 15f);
+            newPosition = new Vector2(x, y);
+        } while (IsPositionOccupied(newPosition)); // Eğer yeni konum mevcut asteroid konumları ile çakışıyorsa tekrar dene
+
+        obj.transform.position = newPosition;
+    }
+
+    private bool IsPositionOccupied(Vector2 position)
+    {
+        // Listede aynı konumda başka bir asteroid var mı kontrol et
+        return asteroidPositions.Contains(position);
     }
 
     private GameObject GetRandomAsteroid()
