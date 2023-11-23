@@ -6,7 +6,7 @@ public class Spacecraft : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
-
+    public AsteroidSpawner asteroidSpawner;
     public Slider healthSlider; // Slider referansı
     public GameObject spaceObject; // Görsel obje referansı
     private Material spaceMaterial; // Görsel objenin materyal referansı
@@ -42,8 +42,10 @@ public class Spacecraft : MonoBehaviour
 
     private void Die()
     {
-        // Ölüm işlemleri burada gerçekleştirilebilir
         Debug.Log("Uzay Aracı Öldü");
+        UIManager.Instance.endPanel.SetActive(true);
+        //asteroidSpawner.gameStarted = false;
+        Time.timeScale = 0f; //ne kadar mantikli bilmiyorum
     }
 
     private IEnumerator ChangeColorForDuration(Color newColor, float duration)

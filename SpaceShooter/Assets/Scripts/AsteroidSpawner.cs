@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
+    public bool gameStarted = false;
     public float minSpawnInterval = .2f;
     public float maxSpawnInterval = .5f;
     public float asteroidLifetime = 1.5f;
@@ -15,36 +16,44 @@ public class AsteroidSpawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnAsteroids());
+        
     }
 
     private IEnumerator SpawnAsteroids()
     {
         while (true)
         {
-            int asteroidCount = Random.Range(5, maxAsteroidCount + 1);
-
-            // Asteroidler arasındaki boşluğu düzenli bir desene göre azalt
-            float patternWidth = 5f; // Desen genişliği
-            float patternHeight = 6f; // Desen yüksekliği
-
-            for (int i = 0; i < asteroidCount; i++)
+            if (gameStarted)
             {
-                GameObject asteroid = GetRandomAsteroid();
+                int asteroidCount = Random.Range(5, maxAsteroidCount + 1);
 
-                // Desen içinde rastgele bir konum belirle
-                float patternX = Random.Range(-patternWidth / 2f, patternWidth / 2f);
-                float patternY = Random.Range(-patternHeight / 2f, patternHeight / 2f);
+                // Asteroidler arasındaki boşluğu düzenli bir desene göre azalt
+                float patternWidth = 5f; // Desen genişliği
+                float patternHeight = 6f; // Desen yüksekliği
 
-                asteroid.transform.position = new Vector2(patternX, spawnHeight + patternY); // Yukarıdan gelme yüksekliği ekleniyor
-                asteroid.SetActive(true);
+                for (int i = 0; i < asteroidCount; i++)
+                {
+                    GameObject asteroid = GetRandomAsteroid();
+
+                    // Desen içinde rastgele bir konum belirle
+                    float patternX = Random.Range(-patternWidth / 2f, patternWidth / 2f);
+                    float patternY = Random.Range(-patternHeight / 2f, patternHeight / 2f);
+
+                    asteroid.transform.position = new Vector2(patternX, spawnHeight + patternY); // Yukarıdan gelme yüksekliği ekleniyor
+                    asteroid.SetActive(true);
+                }
+
+                yield return new WaitForSeconds(asteroidLifetime);
+
+                ReturnAsteroids(asteroidCount);
+
+                float spawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
+                yield return new WaitForSeconds(spawnInterval);
             }
-
-            yield return new WaitForSeconds(asteroidLifetime);
-
-            ReturnAsteroids(asteroidCount);
-
-            float spawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
-            yield return new WaitForSeconds(spawnInterval);
+            else
+            {
+                yield return null;
+            }
         }
     }
 
