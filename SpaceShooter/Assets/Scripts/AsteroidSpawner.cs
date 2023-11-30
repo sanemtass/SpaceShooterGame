@@ -73,24 +73,24 @@ public class AsteroidSpawner : MonoBehaviour
         }
     }
 
-    private void SetRandomPosition(GameObject obj)
-    {
-        Vector2 newPosition;
-        do
-        {
-            float x = Random.Range(-2f, 2f);
-            float y = Random.Range(12f, 15f);
-            newPosition = new Vector2(x, y);
-        } while (IsPositionOccupied(newPosition)); // Eğer yeni konum mevcut asteroid konumları ile çakışıyorsa tekrar dene
+    //private void SetRandomPosition(GameObject obj)
+    //{
+    //    Vector2 newPosition;
+    //    do
+    //    {
+    //        float x = Random.Range(-2f, 2f);
+    //        float y = Random.Range(12f, 15f);
+    //        newPosition = new Vector2(x, y);
+    //    } while (IsPositionOccupied(newPosition));
 
-        obj.transform.position = newPosition;
-    }
+    //    obj.transform.position = newPosition;
+    //}
 
-    private bool IsPositionOccupied(Vector2 position)
-    {
-        // Listede aynı konumda başka bir asteroid var mı kontrol et
-        return asteroidPositions.Contains(position);
-    }
+    //private bool IsPositionOccupied(Vector2 position)
+    //{
+    //    // Listede aynı konumda başka bir asteroid var mı kontrol et
+    //    return asteroidPositions.Contains(position);
+    //}
 
     private GameObject GetRandomAsteroid()
     {

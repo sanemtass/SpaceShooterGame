@@ -39,21 +39,19 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        // Oyun zamanını normale çevir
         Time.timeScale = 1f;
-        // İsterseniz başka başlangıç işlemleri ekleyebilirsiniz
-        SceneManager.LoadScene("SampleScene"); // Oyun sahnesini yeniden yükleme örneği
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void PauseButton()
     {
         if (Time.timeScale == 0f)
         {
-            Time.timeScale = 1f; // Devam ettir
+            Time.timeScale = 1f; 
         }
         else
         {
-            Time.timeScale = 0f; // Duraklat
+            Time.timeScale = 0f; 
         }
     }
 }

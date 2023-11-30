@@ -24,13 +24,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public TextMeshProUGUI starCountText; // Yıldız sayısını gösteren TextMeshPro
-    public TextMeshProUGUI scoreText; // Skoru gösteren TextMeshPro
+    public TextMeshProUGUI starCountText; 
+    public TextMeshProUGUI scoreText; 
     public GameObject startPanel;
     public GameObject endPanel;
 
-    private int starCount = 0; // Yıldız sayısı
-    private int score = 0; // Skor
+    private int starCount = 0; 
+    private int score = 0;
 
     private void Start()
     {
@@ -44,20 +44,17 @@ public class UIManager : MonoBehaviour
         UpdateStarCountText();
     }
 
-    // Skoru güncelle ve ekrana yansıt
     public void UpdateScore(int amount)
     {
         score += amount;
         UpdateScoreText();
     }
 
-    // Yıldız sayısı TextMeshPro'yu güncelle
     private void UpdateStarCountText()
     {
         starCountText.text = " " + starCount.ToString();
     }
 
-    // Skor TextMeshPro'yu güncelle
     private void UpdateScoreText()
     {
         scoreText.text = " " + score.ToString();

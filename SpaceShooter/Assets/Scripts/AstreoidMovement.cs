@@ -8,7 +8,6 @@ public class AstreoidMovement : MonoBehaviour
 
     void Update()
     {
-        // Nesnenin hareketi
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 }

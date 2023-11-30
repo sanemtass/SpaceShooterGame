@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    public float moveSpeed = 5.0f; // Gemiyi hareket ettirme hızı
+    public float moveSpeed = 5.0f;
 
     private void Update()
     {
-        // Mouse'un pozisyonunu al
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // Mouse sol tuşuna tıklandıysa
         if (Input.GetMouseButton(0))
         {
             // Mouse pozisyonu geminin pozisyonuna göre soldaysa sola, sağdaysa sağa hareket et

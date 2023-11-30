@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public int damage = 10;  // Asteroidin verdiği hasar miktarı
+    public int damage = 10;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
